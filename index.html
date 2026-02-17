@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html
   lang="id"
   class="scroll-smooth"
@@ -26,6 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
       tailwind.config = {
@@ -44,9 +45,10 @@
     <style>
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
       .bento-card {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
       /* Dark Mode Styles */
       .dark body {
@@ -74,18 +76,22 @@
       }
       .bento-card:hover {
         border-color: rgba(59, 130, 246, 0.3);
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
       }
 
-      /* Tech Stack Image Styling */
       .tech-icon {
         filter: grayscale(100%);
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
       }
       .bento-card:hover .tech-icon {
         filter: grayscale(0%);
-        transform: scale(1.1);
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      /* Animasi Halus untuk Navigasi */
+      nav {
+        transition: all 0.3s ease;
       }
     </style>
   </head>
@@ -96,50 +102,35 @@
       <div
         class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"
       >
-        <div>
-          <a href="#" class="font-bold text-xl tracking-tight">Ridho.</a>
+        <div data-aos="fade-right">
+          <a href="#" class="font-bold text-xl tracking-tight hover:text-blue-500 transition-colors">Ridho.</a>
         </div>
 
         <div
           class="hidden sm:flex gap-4 text-xs font-bold uppercase tracking-widest"
+          data-aos="fade-down"
         >
-          <a
-            href="#about"
-            class="hover:text-blue-500 transition"
-            x-text="lang === 'id' ? 'Tentang' : 'About'"
-          ></a>
-          <a
-            href="#skill"
-            class="hover:text-blue-500 transition"
-            x-text="lang === 'id' ? 'Keahlian' : 'Skills'"
-          ></a>
-          <a
-            href="#projects"
-            class="hover:text-blue-500 transition"
-            x-text="lang === 'id' ? 'Projek' : 'Projects'"
-          ></a>
-          <a
-            href="#contact"
-            class="hover:text-blue-500 transition"
-            x-text="lang === 'id' ? 'Kontak' : 'Contact'"
-          ></a>
+          <a href="#about" class="hover:text-blue-500 transition" x-text="lang === 'id' ? 'Tentang' : 'About'"></a>
+          <a href="#skill" class="hover:text-blue-500 transition" x-text="lang === 'id' ? 'Keahlian' : 'Skills'"></a>
+          <a href="#projects" class="hover:text-blue-500 transition" x-text="lang === 'id' ? 'Projek' : 'Projects'"></a>
+          <a href="#contact" class="hover:text-blue-500 transition" x-text="lang === 'id' ? 'Kontak' : 'Contact'"></a>
         </div>
 
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3" data-aos="fade-left">
           <button
             @click="lang = (lang === 'id' ? 'en' : 'id'); localStorage.setItem('lang', lang)"
-            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-[10px] font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-[10px] font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90"
           >
-            <span x-text="lang === 'id' ? 'EN' : 'ID'"></span>
+            <span x-transition x-text="lang === 'id' ? 'EN' : 'ID'"></span>
           </button>
 
           <button
             @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90"
           >
             <i
-              class="fa-solid"
-              :class="darkMode ? 'fa-sun text-yellow-400' : 'fa-moon text-blue-600'"
+              class="fa-solid transition-transform duration-500"
+              :class="darkMode ? 'fa-sun text-yellow-400 rotate-180' : 'fa-moon text-blue-600'"
             ></i>
           </button>
         </div>
@@ -151,137 +142,84 @@
         id="about"
         class="mb-24 pt-10 flex flex-col-reverse items-center text-center sm:items-start sm:text-left sm:flex-row gap-8 sm:gap-12"
       >
-        <div class="flex-1 space-y-6">
+        <div class="flex-1 space-y-6" data-aos="fade-up" data-aos-delay="100">
           <div>
-            <h2
-              class="text-blue-500 font-medium mb-2 tracking-wide text-sm uppercase"
-            >
+            <h2 class="text-blue-500 font-medium mb-2 tracking-wide text-sm uppercase">
               Hello, I am
             </h2>
-            <h1
-              class="text-4xl sm:text-5xl font-bold tracking-tight mb-4 dark:text-white"
-            >
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4 dark:text-white">
               Ridho Hidayat
             </h1>
             <p
               class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-lg"
+              x-show="true"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
               x-text="lang === 'id' ? 'Software Developer. Suka membangun produk digital yang simpel, cepat, dan fungsional.' : 'Software Engineer. I love building simple, fast, and functional digital products.'"
             ></p>
           </div>
 
-          <div
-            class="flex flex-wrap gap-4 justify-center sm:justify-start text-zinc-500"
-          >
-            <a
-              href="#"
-              class="px-6 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-semibold hover:opacity-90 transition"
-            >
-              <span
-                x-text="lang === 'id' ? 'Hubungi Saya' : 'Contact Me'"
-              ></span>
+          <div class="flex flex-wrap gap-4 justify-center sm:justify-start text-zinc-500">
+            <a href="#" class="px-6 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-semibold hover:opacity-90 transition-all hover:shadow-lg active:scale-95">
+              <span x-text="lang === 'id' ? 'Hubungi Saya' : 'Contact Me'"></span>
             </a>
-            <a
-              href="document/cv.pdf"
-              class="px-6 py-2.5 border border-zinc-200 dark:border-zinc-700 rounded-full text-sm font-semibold hover:border-blue-500 hover:text-blue-500 transition"
-            >
+            <a href="document/cv.pdf" class="px-6 py-2.5 border border-zinc-200 dark:border-zinc-700 rounded-full text-sm font-semibold hover:border-blue-500 hover:text-blue-500 transition-all active:scale-95">
               Download CV
             </a>
           </div>
 
-          <div
-            class="flex gap-5 justify-center sm:justify-start text-xl text-zinc-400 pt-2"
-          >
-            <a href="#" class="hover:text-white transition"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-            <a href="#" class="hover:text-blue-500 transition"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
-            <a href="#" class="hover:text-red-500 transition"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
-            <a href="#" class="hover:text-pink-500 transition"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
+          <div class="flex gap-5 justify-center sm:justify-start text-xl text-zinc-400 pt-2">
+            <a href="#" class="hover:text-white transition-all hover:-translate-y-1"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="hover:text-blue-500 transition-all hover:-translate-y-1"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-red-500 transition-all hover:-translate-y-1"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="hover:text-pink-500 transition-all hover:-translate-y-1"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
 
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"
-          ></div>
-          <div
-            class="relative w-64 h-64 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 overflow-hidden"
-          >
+        <div class="relative group" data-aos="zoom-in" data-aos-delay="300">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+          <div class="relative w-64 h-64 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 overflow-hidden">
             <img
               src="img/hero.jpeg"
-              onerror="
-                this.src =
-                  'https://ui-avatars.com/api/?name=Ridho+Hidayat&background=0D8ABC&color=fff&size=256'
-              "
+              onerror="this.src ='https://ui-avatars.com/api/?name=Ridho+Hidayat&background=0D8ABC&color=fff&size=256'"
               alt="Ridho Hidayat"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
             />
           </div>
         </div>
       </header>
 
       <main class="space-y-24">
-        <section>
+        <section data-aos="fade-up">
           <div class="flex items-center gap-4 mb-8">
-            <h2
-              class="text-xs font-bold uppercase tracking-widest text-zinc-500"
-              x-text="lang === 'id' ? 'Tentang Saya' : 'About Me'"
-            ></h2>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-500" x-text="lang === 'id' ? 'Tentang Saya' : 'About Me'"></h2>
             <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
           </div>
-          <div
-            class="prose dark:prose-invert text-zinc-600 dark:text-zinc-400 leading-loose"
-          >
-            <p
-              x-text="lang === 'id' ? 'Saya adalah pengembang web yang berfokus pada ekosistem PHP, khususnya Laravel. Dengan pengalaman dalam membangun aplikasi monolitik maupun API-driven, saya memastikan kode yang saya tulis bersih, mudah dipelihara, dan skalabel.' : 'I am a web developer focused on the PHP ecosystem, specifically Laravel. With experience in building both monolithic and API-driven applications, I ensure the code I write is clean, maintainable, and scalable.'"
-            ></p>
-            <p
-              class="mt-4"
-              x-text="lang === 'id' ? 'Saat ini saya sedang mendalami arsitektur Microservices dan implementasi Docker untuk lingkungan pengembangan yang lebih efisien.' : 'Currently, I am diving deep into Microservices architecture and Docker implementation for a more efficient development environment.'"
-            ></p>
+          <div class="prose dark:prose-invert text-zinc-600 dark:text-zinc-400 leading-loose">
+            <p x-text="lang === 'id' ? 'Saya adalah pengembang web yang berfokus pada ekosistem PHP, khususnya Laravel. Dengan pengalaman dalam membangun aplikasi monolitik maupun API-driven, saya memastikan kode yang saya tulis bersih, mudah dipelihara, dan skalabel.' : 'I am a web developer focused on the PHP ecosystem, specifically Laravel. With experience in building both monolithic and API-driven applications, I ensure the code I write is clean, maintainable, and scalable.'"></p>
+            <p class="mt-4" x-text="lang === 'id' ? 'Saat ini saya sedang mendalami arsitektur Microservices dan implementasi Docker untuk lingkungan pengembangan yang lebih efisien.' : 'Currently, I am diving deep into Microservices architecture and Docker implementation for a more efficient development environment.'"></p>
           </div>
         </section>
 
         <section id="skill">
-          <div class="flex items-center gap-4 mb-8">
-            <h2
-              class="text-xs font-bold uppercase tracking-widest text-zinc-500"
-              x-text="lang === 'id' ? 'Keahlian Teknis' : 'Technical Skills'"
-            ></h2>
+          <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-500" x-text="lang === 'id' ? 'Keahlian Teknis' : 'Technical Skills'"></h2>
             <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
           </div>
 
           <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-            <template
-              x-for="tech in ['JavaScript', 'React', 'Node.js', 'TypeScript', 'Next.js', 'Tailwind CSS', 'PHP', 'Laravel', 'Livewire', 'Python', 'MySQL', 'Vite.js', 'Docker', 'Git', 'Alpine.js']"
-            >
+            <template x-for="(tech, index) in ['JavaScript', 'React', 'Node.js', 'TypeScript', 'Next.js', 'Tailwind CSS', 'PHP', 'Laravel', 'Livewire', 'Python', 'MySQL', 'Vite.js', 'Docker', 'Git', 'Alpine.js']">
               <div
                 class="bento-card p-4 rounded-xl flex flex-col items-center justify-center gap-3 group cursor-default"
+                data-aos="zoom-in"
+                :data-aos-delay="index * 50"
               >
                 <div class="h-10 w-10 flex items-center justify-center">
-                  <img
-                    :src="`img/tech-stack/${tech}.png`"
-                    :alt="tech"
-                    class="tech-icon max-h-full max-w-full object-contain"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'block';
-                    "
-                  />
-                  <i
-                    class="fa-solid fa-layer-group text-2xl text-zinc-600 dark:text-zinc-500 hidden"
-                  ></i>
+                  <img :src="`img/tech-stack/${tech}.png`" :alt="tech" class="tech-icon max-h-full max-w-full object-contain" onerror="this.style.display = 'none'; this.nextElementSibling.style.display = 'block';">
+                  <i class="fa-solid fa-layer-group text-2xl text-zinc-600 dark:text-zinc-500 hidden"></i>
                 </div>
-                <span
-                  class="text-[10px] font-bold uppercase tracking-wider text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors"
-                  x-text="tech"
-                ></span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors" x-text="tech"></span>
               </div>
             </template>
           </div>
@@ -289,231 +227,104 @@
 
         <section id="experience" class="py-12">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="md:col-span-1">
+            <div class="md:col-span-1" data-aos="fade-right">
               <div class="sticky top-24">
                 <div class="flex items-center gap-4 mb-6">
-                  <h2
-                    class="text-xs font-bold uppercase tracking-widest text-zinc-500"
-                    x-text="lang === 'id' ? 'Pengalaman' : 'Experience'"
-                  ></h2>
-                  <div
-                    class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50 sm:hidden"
-                  ></div>
+                  <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-500" x-text="lang === 'id' ? 'Pengalaman' : 'Experience'"></h2>
+                  <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50 sm:hidden"></div>
                 </div>
-
-                <h3
-                  class="text-3xl font-bold mb-4 dark:text-white"
-                  x-text="lang === 'id' ? 'Riwayat Karir' : 'My Experience'"
-                ></h3>
-                <p
-                  class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8"
-                  x-text="lang === 'id' ? 'Saya telah bekerja di berbagai instansi untuk mengasah kemampuan pengembangan web dan solusi digital.' : 'I have worked with various institutions to hone my web development and digital solution skills.'"
-                ></p>
+                <h3 class="text-3xl font-bold mb-4 dark:text-white" x-text="lang === 'id' ? 'Riwayat Karir' : 'My Experience'"></h3>
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8" x-text="lang === 'id' ? 'Saya telah bekerja di berbagai instansi untuk mengasah kemampuan pengembangan web dan solusi digital.' : 'I have worked with various institutions to hone my web development and digital solution skills.'"></p>
               </div>
             </div>
 
-            <div
-              class="md:col-span-2 relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-0 pl-8 space-y-12"
-            >
-              <div class="relative">
-                <div
-                  class="absolute -left-[40px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white dark:border-darkBg"
-                ></div>
-
-                <div
-                  class="flex flex-col sm:flex-row sm:items-center justify-between mb-2"
-                >
-                  <h4 class="text-lg font-bold dark:text-white">
-                    Freelance Web Developer
-                  </h4>
-                  <span
-                    class="text-xs font-bold text-zinc-400 uppercase tracking-wider"
-                    >Jan 2025 — Present</span
-                  >
+            <div class="md:col-span-2 relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-0 pl-8 space-y-12">
+              <div class="relative group" data-aos="fade-up">
+                <div class="absolute -left-[40px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white dark:border-darkBg group-hover:scale-125 transition-transform"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                  <h4 class="text-lg font-bold dark:text-white">Freelance Web Developer</h4>
+                  <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Jan 2025 — Present</span>
                 </div>
                 <p class="text-blue-500 font-medium text-sm mb-3">Jokiin Aja</p>
-                <p
-                  class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed"
-                  x-text="lang === 'id' ? 'Bertanggung jawab dalam membangun landing page dan sistem web kustom sesuai permintaan klien menggunakan stack Laravel dan Tailwind CSS.' : 'Responsible for building landing pages and custom web systems according to client requests using Laravel and Tailwind CSS stack.'"
-                ></p>
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed" x-text="lang === 'id' ? 'Bertanggung jawab dalam membangun landing page dan sistem web kustom sesuai permintaan klien menggunakan stack Laravel dan Tailwind CSS.' : 'Responsible for building landing pages and custom web systems according to client requests using Laravel and Tailwind CSS stack.'"></p>
               </div>
 
-              <div class="relative">
-                <div
-                  class="absolute -left-[40px] top-1.5 w-4 h-4 rounded-full bg-zinc-300 dark:bg-zinc-700 border-4 border-white dark:border-darkBg group-hover:bg-amber-500 transition-colors"
-                ></div>
-
-                <div
-                  class="flex flex-col sm:flex-row sm:items-center justify-between mb-2"
-                >
-                  <h4 class="text-lg font-bold dark:text-white">
-                    Web Developer Intern
-                  </h4>
-                  <span
-                    class="text-xs font-bold text-zinc-400 uppercase tracking-wider"
-                    >Aug 2025 — Jan 2026</span
-                  >
+              <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute -left-[40px] top-1.5 w-4 h-4 rounded-full bg-zinc-300 dark:bg-zinc-700 border-4 border-white dark:border-darkBg group-hover:bg-amber-500 transition-all group-hover:scale-125"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                  <h4 class="text-lg font-bold dark:text-white">Web Developer Intern</h4>
+                  <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Aug 2025 — Jan 2026</span>
                 </div>
-                <p class="text-blue-500 font-medium text-sm mb-3">
-                  RS Bakti Timah Medika Pangkal Pinang
-                </p>
-                <p
-                  class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed"
-                  x-text="lang === 'id' ? 'Membantu pengembangan sistem internal rumah sakit, mengoptimalkan database, dan memastikan antarmuka pengguna responsif dan mudah digunakan oleh staf medis.' : 'Assisting in the development of internal hospital systems, optimizing databases, and ensuring the user interface is responsive and easy to use by medical staff.'"
-                ></p>
+                <p class="text-blue-500 font-medium text-sm mb-3">RS Bakti Timah Medika Pangkal Pinang</p>
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed" x-text="lang === 'id' ? 'Membantu pengembangan sistem internal rumah sakit, mengoptimalkan database, dan memastikan antarmuka pengguna responsif dan mudah digunakan oleh staf medis.' : 'Assisting in the development of internal hospital systems, optimizing databases, and ensuring the user interface is responsive and easy to use by medical staff.'"></p>
               </div>
             </div>
           </div>
         </section>
 
         <section id="projects">
-          <div class="flex items-center gap-4 mb-8">
-            <h2
-              class="text-xs font-bold uppercase tracking-widest text-zinc-500"
-              x-text="lang === 'id' ? 'Projek Pilihan' : 'Selected Work'"
-            ></h2>
+          <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-500" x-text="lang === 'id' ? 'Projek Pilihan' : 'Selected Work'"></h2>
             <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
-            <a
-              href="#"
-              class="bento-card p-6 rounded-3xl flex flex-col gap-4 group relative overflow-hidden"
-            >
+            <a href="#" class="bento-card p-6 rounded-3xl flex flex-col gap-4 group relative overflow-hidden" data-aos="fade-up">
               <div class="flex items-start justify-between z-10">
-                <div
-                  class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors"
-                >
-                  <i class="fa-solid fa-cube text-blue-500 text-xl"></i>
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
+                  <i class="fa-solid fa-cube text-blue-500 text-xl group-hover:rotate-12 transition-transform"></i>
                 </div>
-                <i
-                  class="fa-solid fa-arrow-right -rotate-45 text-zinc-400 group-hover:text-blue-500 transition-all group-hover:translate-x-1 group-hover:-translate-y-1"
-                ></i>
+                <i class="fa-solid fa-arrow-right -rotate-45 text-zinc-400 group-hover:text-blue-500 transition-all group-hover:translate-x-1 group-hover:-translate-y-1"></i>
               </div>
-
               <div class="z-10">
-                <h3
-                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
-                >
-                  LaraCMS Engine
-                </h3>
-                <p
-                  class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'Sistem manajemen konten modular berbasis Laravel 12 dengan dukungan plugin.' : 'Modular content management system based on Laravel 12 with plugin support.'"
-                ></p>
+                <h3 class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors">LaraCMS Engine</h3>
+                <p class="text-sm text-zinc-500 leading-relaxed" x-text="lang === 'id' ? 'Sistem manajemen konten modular berbasis Laravel 12 dengan dukungan plugin.' : 'Modular content management system based on Laravel 12 with plugin support.'"></p>
               </div>
-
               <div class="flex gap-2 mt-2 z-10">
-                <span
-                  class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
-                  >Laravel</span
-                >
-                <span
-                  class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
-                  >Vue</span
-                >
+                <span class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700">Laravel</span>
+                <span class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700">Vue</span>
               </div>
             </a>
 
-            <a
-              href="#"
-              class="bento-card p-6 rounded-3xl flex flex-col gap-4 group relative overflow-hidden"
-            >
+            <a href="#" class="bento-card p-6 rounded-3xl flex flex-col gap-4 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
               <div class="flex items-start justify-between z-10">
-                <div
-                  class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors"
-                >
-                  <i
-                    class="fa-solid fa-cart-shopping text-emerald-500 text-xl"
-                  ></i>
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors">
+                  <i class="fa-solid fa-cart-shopping text-emerald-500 text-xl group-hover:rotate-12 transition-transform"></i>
                 </div>
-                <i
-                  class="fa-solid fa-arrow-right -rotate-45 text-zinc-400 group-hover:text-emerald-500 transition-all group-hover:translate-x-1 group-hover:-translate-y-1"
-                ></i>
+                <i class="fa-solid fa-arrow-right -rotate-45 text-zinc-400 group-hover:text-emerald-500 transition-all group-hover:translate-x-1 group-hover:-translate-y-1"></i>
               </div>
-
               <div class="z-10">
-                <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
-                >
-                  E-Commerce API
-                </h3>
-                <p
-                  class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'RESTful API untuk platform toko online dengan integrasi Payment Gateway.' : 'RESTful API for online store platform with Payment Gateway integration.'"
-                ></p>
+                <h3 class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors">E-Commerce API</h3>
+                <p class="text-sm text-zinc-500 leading-relaxed" x-text="lang === 'id' ? 'RESTful API untuk platform toko online dengan integrasi Payment Gateway.' : 'RESTful API for online store platform with Payment Gateway integration.'"></p>
               </div>
-
               <div class="flex gap-2 mt-2 z-10">
-                <span
-                  class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
-                  >Node.js</span
-                >
-                <span
-                  class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
-                  >Stripe</span
-                >
+                <span class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700">Node.js</span>
+                <span class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700">Stripe</span>
               </div>
             </a>
           </div>
         </section>
 
-        <section id="contact" class="py-12">
+        <section id="contact" class="py-12" data-aos="fade-up">
           <div class="flex items-center gap-4 mb-10">
-            <h2
-              class="text-xs font-bold uppercase tracking-widest text-zinc-500"
-              x-text="lang === 'id' ? 'Mari Terhubung' : 'Let\'s Connect'"
-            ></h2>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-500" x-text="lang === 'id' ? 'Mari Terhubung' : 'Let\'s Connect'"></h2>
             <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div class="space-y-6">
-              <h3
-                class="text-3xl font-bold dark:text-white"
-                x-text="lang === 'id' ? 'Punya ide proyek?' : 'Have a project idea?'"
-              ></h3>
+              <h3 class="text-3xl font-bold dark:text-white" x-text="lang === 'id' ? 'Punya ide proyek?' : 'Have a project idea?'"></h3>
               <p class="text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                <span
-                  x-text="lang === 'id' ? 'Jika Anda memiliki pertanyaan, proposal proyek, atau sekadar ingin menyapa, silakan hubungi saya! Saya akan membalas Anda sesegera mungkin.' : 'If you have any questions, project proposals, or just want to say hello, feel free to reach out! I\'ll get back to you as soon as possible.'"
-                ></span>
+                <span x-text="lang === 'id' ? 'Jika Anda memiliki pertanyaan, proposal proyek, atau sekadar ingin menyapa, silakan hubungi saya! Saya akan membalas Anda sesegera mungkin.' : 'If you have any questions, project proposals, or just want to say hello, feel free to reach out! I\'ll get back to you as soon as possible.'"></span>
               </p>
-
               <div class="pt-4 space-y-4">
-                <div class="flex items-center gap-4 group">
-                  <div
-                    class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all"
-                  >
+                <div class="flex items-center gap-4 group cursor-pointer">
+                  <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all">
                     <i class="fa-solid fa-envelope"></i>
                   </div>
                   <div>
-                    <p
-                      class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold"
-                    >
-                      Email
-                    </p>
-                    <a
-                      href="mailto:rdho.hdyat@gmail.com"
-                      class="text-sm font-medium dark:text-zinc-200 hover:text-blue-500 transition-colors"
-                      >rdho.hdyat@gmail.com</a
-                    >
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-4 group">
-                  <div
-                    class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-white dark:group-hover:text-black group-hover:text-white transition-all"
-                  >
-                    <i class="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div>
-                    <p
-                      class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold"
-                      x-text="lang === 'id' ? 'Lokasi' : 'Location'"
-                    ></p>
-                    <p class="text-sm font-medium dark:text-zinc-200">
-                      Riau, Indonesia
-                    </p>
+                    <p class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Email</p>
+                    <a href="mailto:rdho.hdyat@gmail.com" class="text-sm font-medium dark:text-zinc-200 hover:text-blue-500 transition-colors">rdho.hdyat@gmail.com</a>
                   </div>
                 </div>
               </div>
@@ -522,73 +333,46 @@
             <form action="#" class="space-y-4">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-2">
-                  <label
-                    class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1"
-                    x-text="lang === 'id' ? 'Nama Lengkap' : 'Full Name'"
-                  ></label>
-                  <input
-                    type="text"
-                    placeholder="John Doe"
-                    class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:bg-white dark:focus:bg-black outline-none transition-all text-sm dark:text-white"
-                  />
+                  <label class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1" x-text="lang === 'id' ? 'Nama Lengkap' : 'Full Name'"></label>
+                  <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white" />
                 </div>
                 <div class="space-y-2">
-                  <label
-                    class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    placeholder="john@example.com"
-                    class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:bg-white dark:focus:bg-black outline-none transition-all text-sm dark:text-white"
-                  />
+                  <label class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1">Email</label>
+                  <input type="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white" />
                 </div>
               </div>
-
               <div class="space-y-2">
-                <label
-                  class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1"
-                  x-text="lang === 'id' ? 'Subjek' : 'Subject'"
-                ></label>
-                <input
-                  type="text"
-                  placeholder="I want to build a website"
-                  class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:bg-white dark:focus:bg-black outline-none transition-all text-sm dark:text-white"
-                />
+                <label class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1" x-text="lang === 'id' ? 'Subjek' : 'Subject'"></label>
+                <input type="text" placeholder="I want to build a website" class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white" />
               </div>
-
               <div class="space-y-2">
-                <label
-                  class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1"
-                  x-text="lang === 'id' ? 'Pesan' : 'Message'"
-                ></label>
-                <textarea
-                  rows="4"
-                  placeholder="..."
-                  class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:bg-white dark:focus:bg-black outline-none transition-all text-sm dark:text-white resize-none"
-                ></textarea>
+                <label class="text-[10px] uppercase tracking-widest font-bold text-zinc-500 ml-1" x-text="lang === 'id' ? 'Pesan' : 'Message'"></label>
+                <textarea rows="4" placeholder="..." class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white resize-none"></textarea>
               </div>
-
-              <button
-                class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg shadow-blue-600/20 active:scale-[0.98]"
-              >
-                <span
-                  x-text="lang === 'id' ? 'Kirim Pesan' : 'Send Message'"
-                ></span>
-                <i class="fa-solid fa-paper-plane ml-2"></i>
+              <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg shadow-blue-600/20 active:scale-[0.98] flex items-center justify-center gap-2">
+                <span x-text="lang === 'id' ? 'Kirim Pesan' : 'Send Message'"></span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
               </button>
             </form>
           </div>
         </section>
       </main>
 
-      <footer
-        class="mt-32 pt-8 pb-12 border-t border-zinc-200 dark:border-zinc-900 text-center"
-      >
+      <footer class="mt-32 pt-8 pb-12 border-t border-zinc-200 dark:border-zinc-900 text-center">
         <p class="text-zinc-500 text-[10px] tracking-widest uppercase mb-2">
           &copy; 2026 Ridho Hidayat
         </p>
       </footer>
     </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+        easing: 'ease-in-out'
+      });
+    </script>
   </body>
 </html>

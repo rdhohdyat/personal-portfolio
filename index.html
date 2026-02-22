@@ -9,10 +9,18 @@
   :class="{ 'dark': darkMode }"
 >
   <head>
+    <title>Portfolio | Minimalist Tech</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Minimalist Tech</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta
+      name="description"
+      content="Portfolio Ridho Hidayat, Software Developer spesialis Laravel, Node.js, dan React."
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
@@ -85,6 +93,7 @@
 
         <div class="flex items-center gap-3" data-aos="fade-left">
           <button
+            aria-label="Ganti Bahasa"
             @click="lang = (lang === 'id' ? 'en' : 'id'); localStorage.setItem('lang', lang)"
             class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-[10px] font-bold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90"
           >
@@ -92,6 +101,7 @@
           </button>
 
           <button
+            aria-label="Ganti Tema"
             @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
             class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90"
           >
@@ -155,21 +165,30 @@
           >
             <a
               href="https://github.com/rdhohdyat"
+              aria-label="Kunjungi Profil GitHub Saya"
+              target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-white transition-all hover:-translate-y-1"
               ><i class="fa-brands fa-github"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/rdhohdyat/"
+              target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-blue-500 transition-all hover:-translate-y-1"
               ><i class="fa-brands fa-linkedin"></i
             ></a>
             <a
               href="https://www.youtube.com/@ridhoohidayat"
+              target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-red-500 transition-all hover:-translate-y-1"
               ><i class="fa-brands fa-youtube"></i
             ></a>
             <a
               href="https://www.instagram.com/rdho.hdyat/"
+              target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-pink-500 transition-all hover:-translate-y-1"
               ><i class="fa-brands fa-instagram"></i
             ></a>
@@ -185,11 +204,7 @@
           >
             <img
               src="img/hero.jpeg"
-              onerror="
-                this.src =
-                  'https://ui-avatars.com/api/?name=Ridho+Hidayat&background=0D8ABC&color=fff&size=256'
-              "
-              alt="Ridho Hidayat"
+              alt="Foto profil Ridho Hidayat - Software Developer"
               class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
             />
           </div>

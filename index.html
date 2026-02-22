@@ -12,7 +12,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Minimalist Tech</title>
-
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
@@ -41,61 +41,6 @@
         },
       };
     </script>
-
-    <style>
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        transition:
-          background-color 0.5s ease,
-          color 0.5s ease;
-      }
-      .bento-card {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      /* Dark Mode Styles */
-      .dark body {
-        background-color: #050505;
-        color: #e2e8f0;
-      }
-      .dark .bento-card {
-        background: rgba(18, 18, 18, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      /* Light Mode Styles */
-      body {
-        background-color: #f8fafc;
-        color: #1e293b;
-      }
-      .bento-card {
-        background: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-
-      .dark .bento-card:hover {
-        border-color: rgba(59, 130, 246, 0.5);
-        background: rgba(22, 22, 22, 0.9);
-      }
-      .bento-card:hover {
-        border-color: rgba(59, 130, 246, 0.3);
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-      }
-
-      .tech-icon {
-        filter: grayscale(100%);
-        transition: all 0.4s ease;
-      }
-      .bento-card:hover .tech-icon {
-        filter: grayscale(0%);
-        transform: scale(1.2) rotate(5deg);
-      }
-
-      /* Animasi Halus untuk Navigasi */
-      nav {
-        transition: all 0.3s ease;
-      }
-    </style>
   </head>
   <body class="antialiased selection:bg-blue-500/30">
     <nav
@@ -410,11 +355,6 @@
               data-aos="fade-up"
             >
               <div class="z-10">
-                <img
-                  src="img/ebr-profile.png"
-                  alt="EBR Profile"
-                  class="rounded-xl mb-4"
-                />
                 <h3
                   class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
@@ -448,13 +388,8 @@
               data-aos-delay="100"
             >
               <div class="z-10">
-                <img
-                  src="img/contact-mgnt.png"
-                  alt="Contact Management"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   Contact Management System
                 </h3>
@@ -486,13 +421,8 @@
               data-aos-delay="200"
             >
               <div class="z-10">
-                <img
-                  src="img/detection.png"
-                  alt="Smoking Detection"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   Sistem Deteksi Aktivitas Merokok
                 </h3>
@@ -524,13 +454,8 @@
               data-aos-delay="300"
             >
               <div class="z-10">
-                <img
-                  src="img/printing-shop.png"
-                  alt="E-Commerce"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   E-Commerce Percetakan
                 </h3>
@@ -558,13 +483,8 @@
               data-aos-delay="400"
             >
               <div class="z-10">
-                <img
-                  src="img/lumina-pos.png"
-                  alt="Lumina POS"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   Lumina POS
                 </h3>
@@ -596,13 +516,8 @@
               data-aos-delay="500"
             >
               <div class="z-10">
-                <img
-                  src="img/wa-bot.png"
-                  alt="WA Bot"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   WhatsApp Bot PDF Converter
                 </h3>
@@ -630,19 +545,14 @@
               data-aos-delay="500"
             >
               <div class="z-10">
-                <img
-                  src="img/wa-bot.png"
-                  alt="WA Bot"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   SIG persebaran fasilitas umum di Pekanbaru
                 </h3>
                 <p
                   class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'Automasi konversi dokumen gambar ke PDF melalui pesan WhatsApp.' : 'Automated image-to-PDF conversion via WhatsApp messages.'"
+                  x-text="lang === 'id' ? 'Sistem informasi geografis untuk memetakan lokasi fasilitas publik di wilayah Pekanbaru.' : 'Geographic Information System to map public facility locations in the Pekanbaru area.'"
                 ></p>
               </div>
               <div class="flex flex-wrap gap-2 mt-auto z-10">
@@ -664,19 +574,14 @@
               data-aos-delay="500"
             >
               <div class="z-10">
-                <img
-                  src="img/wa-bot.png"
-                  alt="WA Bot"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   POS Mobile Caffe
                 </h3>
                 <p
                   class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'Automasi konversi dokumen gambar ke PDF melalui pesan WhatsApp.' : 'Automated image-to-PDF conversion via WhatsApp messages.'"
+                  x-text="lang === 'id' ? 'Aplikasi kasir berbasis mobile yang dirancang khusus untuk operasional bisnis kafe.' : 'Mobile-based point of sale application specifically designed for cafe business operations.'"
                 ></p>
               </div>
               <div class="flex flex-wrap gap-2 mt-auto z-10">
@@ -698,19 +603,14 @@
               data-aos-delay="500"
             >
               <div class="z-10">
-                <img
-                  src="img/wa-bot.png"
-                  alt="WA Bot"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   Web Pasar Tradisional Online
                 </h3>
                 <p
                   class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'Automasi konversi dokumen gambar ke PDF melalui pesan WhatsApp.' : 'Automated image-to-PDF conversion via WhatsApp messages.'"
+                  x-text="lang === 'id' ? 'Digitalisasi pasar tradisional untuk memudahkan transaksi jual beli sembako secara daring.' : 'Digitalization of traditional markets to facilitate online buying and selling of basic necessities.'"
                 ></p>
               </div>
               <div class="flex flex-wrap gap-2 mt-auto z-10">
@@ -736,19 +636,14 @@
               data-aos-delay="500"
             >
               <div class="z-10">
-                <img
-                  src="img/wa-bot.png"
-                  alt="WA Bot"
-                  class="rounded-xl mb-4"
-                />
                 <h3
-                  class="text-lg font-bold mb-1 group-hover:text-emerald-500 transition-colors"
+                  class="text-lg font-bold mb-1 group-hover:text-blue-500 transition-colors"
                 >
                   Sistem pencatatan prestasi mahasiswa
                 </h3>
                 <p
                   class="text-sm text-zinc-500 leading-relaxed"
-                  x-text="lang === 'id' ? 'Automasi konversi dokumen gambar ke PDF melalui pesan WhatsApp.' : 'Automated image-to-PDF conversion via WhatsApp messages.'"
+                  x-text="lang === 'id' ? 'Platform manajemen data untuk mendokumentasikan pencapaian akademik dan non-akademik mahasiswa.' : 'Data management platform for documenting students academic and non-academic achievements.'"
                 ></p>
               </div>
               <div class="flex flex-wrap gap-2 mt-auto z-10">

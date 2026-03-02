@@ -7,19 +7,34 @@
         lang: localStorage.getItem('lang') || 'id' 
       }"
   :class="{ 'dark': darkMode }"
+  :lang="lang"
 >
   <head>
-    <title>Portfolio | Minimalist Tech</title>
+    <title>Portfolio | Ridho Hidayat</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Portfolio Ridho Hidayat, Software Developer spesialis Laravel, Node.js, dan React."
     />
-    
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ridhohidayat.vercel.app/" />
+    <meta property="og:title" content="Portfolio | Ridho Hidayat" />
+    <meta property="og:description" content="Portfolio Ridho Hidayat, Software Developer spesialis Laravel, Node.js, dan React." />
+    <meta property="og:image" content="https://ridhohidayat.vercel.app/img/heroo.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ridhohidayat.vercel.app/" />
+    <meta property="twitter:title" content="Portfolio | Ridho Hidayat" />
+    <meta property="twitter:description" content="Portfolio Ridho Hidayat, Software Developer spesialis Laravel, Node.js, dan React." />
+    <meta property="twitter:image" content="https://ridhohidayat.vercel.app/img/heroo.jpeg" />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
@@ -205,6 +220,7 @@
               src="img/heroo.jpeg"
               alt="Foto profil Ridho Hidayat - Software Developer"
               class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+              loading="lazy"
             />
           </div>
         </div>
@@ -255,6 +271,7 @@
                     :src="`img/tech-stack/${tech}.png`"
                     :alt="tech"
                     class="tech-icon max-h-full max-w-full object-contain"
+                    loading="lazy"
                     onerror="
                       this.style.display = 'none';
                       this.nextElementSibling.style.display = 'block';
@@ -573,7 +590,11 @@
                 >
                 <span
                   class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
-                  >WhatsApp Web JS</span
+                  >Leaflet</span
+                >
+                <span
+                  class="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border border-zinc-200 dark:border-zinc-700"
+                  >PostGIS</span
                 >
               </div>
             </a>
@@ -723,6 +744,9 @@
                   ></label>
                   <input
                     type="text"
+                    name="name"
+                    id="name"
+                    required
                     placeholder="John Doe"
                     class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white"
                   />
@@ -734,6 +758,9 @@
                   >
                   <input
                     type="email"
+                    name="email"
+                    id="email"
+                    required
                     placeholder="john@example.com"
                     class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white"
                   />
@@ -746,6 +773,9 @@
                 ></label>
                 <input
                   type="text"
+                  name="subject"
+                  id="subject"
+                  required
                   placeholder="I want to build a website"
                   class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white"
                 />
@@ -757,6 +787,9 @@
                 ></label>
                 <textarea
                   rows="4"
+                  name="message"
+                  id="message"
+                  required
                   placeholder="..."
                   class="w-full px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm dark:text-white resize-none"
                 ></textarea>
@@ -792,5 +825,17 @@
         easing: "ease-in-out",
       });
     </script>
+    <!-- Back to Top Button -->
+    <button
+      x-data="{ show: false }"
+      x-init="window.addEventListener('scroll', () => { show = window.scrollY > 500 })"
+      x-show="show"
+      x-transition.opacity
+      @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition-all z-50 hover:scale-110 active:scale-95"
+      aria-label="Kembali ke atas"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </body>
 </html>

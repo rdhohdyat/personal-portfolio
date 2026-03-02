@@ -1,0 +1,18 @@
+[
+    {
+        "role": "Freelance Web Developer",
+        "company": "Jokiin Aja",
+        "period": "Jan 2025 — Present",
+        "description_id": "Bertanggung jawab dalam membangun landing page dan sistem web kustom sesuai permintaan klien menggunakan stack Laravel dan Tailwind CSS.",
+        "description_en": "Responsible for building landing pages and custom web systems according to client requests using Laravel and Tailwind CSS stack.",
+        "active": true
+    },
+    {
+        "role": "Web Developer Intern",
+        "company": "RS Bakti Timah Medika Pangkal Pinang",
+        "period": "Aug 2025 — Jan 2026",
+        "description_id": "Membantu pengembangan sistem internal rumah sakit, mengoptimalkan database, dan memastikan antarmuka pengguna responsif dan mudah digunakan oleh staf medis.",
+        "description_en": "Assisting in the development of internal hospital systems, optimizing databases, and ensuring the user interface is responsive and easy to use by medical staff.",
+        "active": false
+    }
+]

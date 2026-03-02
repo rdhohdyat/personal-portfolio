@@ -1,0 +1,128 @@
+[
+    {
+        "title": "Web Profile & Manajemen Event EBR",
+        "description_id": "Sistem informasi profil perusahaan dan manajemen pendaftaran event terintegrasi.",
+        "description_en": "Company profile system and integrated event management registration.",
+        "link": "#projects",
+        "tags": [
+            "Laravel",
+            "Livewire",
+            "Tailwind CSS"
+        ],
+        "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
+        "delay": 0
+    },
+    {
+        "title": "Contact Management System",
+        "description_id": "Aplikasi pengelolaan kontak relasi dengan fitur kategori dan pencarian cepat.",
+        "description_en": "Contact management app with categorization and fast search features.",
+        "link": "#projects",
+        "tags": [
+            "Node.js",
+            "React.js",
+            "Tailwind CSS"
+        ],
+        "image": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2070&auto=format&fit=crop",
+        "delay": 100
+    },
+    {
+        "title": "Sistem Deteksi Aktivitas Merokok",
+        "description_id": "Deteksi objek berbasis AI untuk memantau pelanggaran merokok di area terbatas.",
+        "description_en": "AI-based object detection to monitor smoking violations in restricted areas.",
+        "link": "#projects",
+        "tags": [
+            "Python",
+            "YOLO",
+            "OpenCV"
+        ],
+        "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
+        "delay": 200
+    },
+    {
+        "title": "E-Commerce Percetakan",
+        "description_id": "Platform pemesanan cetak online dengan kustomisasi produk dan payment gateway.",
+        "description_en": "Online printing order platform with product customization and payment gateway.",
+        "link": "#projects",
+        "tags": [
+            "Laravel 11",
+            "Livewire 3"
+        ],
+        "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+        "delay": 300
+    },
+    {
+        "title": "Lumina POS",
+        "description_id": "Aplikasi kasir (Point of Sale) modern untuk manajemen stok dan laporan penjualan.",
+        "description_en": "Modern Point of Sale application for stock management and sales reports.",
+        "link": "#projects",
+        "tags": [
+            "Laravel",
+            "Livewire 3",
+            "Alpine.js"
+        ],
+        "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop",
+        "delay": 400
+    },
+    {
+        "title": "WhatsApp Bot PDF Converter",
+        "description_id": "Automasi konversi dokumen gambar ke PDF melalui pesan WhatsApp.",
+        "description_en": "Automated image-to-PDF conversion via WhatsApp messages.",
+        "link": "#projects",
+        "tags": [
+            "Node.js",
+            "WhatsApp Web JS"
+        ],
+        "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=2070&auto=format&fit=crop",
+        "delay": 500
+    },
+    {
+        "title": "SIG persebaran fasilitas umum di Pekanbaru",
+        "description_id": "Sistem informasi geografis untuk memetakan lokasi fasilitas publik di wilayah Pekanbaru.",
+        "description_en": "Geographic Information System to map public facility locations in the Pekanbaru area.",
+        "link": "#projects",
+        "tags": [
+            "Node.js",
+            "Leaflet",
+            "PostGIS"
+        ],
+        "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?q=80&w=2070&auto=format&fit=crop",
+        "delay": 500
+    },
+    {
+        "title": "POS Mobile Caffe",
+        "description_id": "Aplikasi kasir berbasis mobile yang dirancang khusus untuk operasional bisnis kafe.",
+        "description_en": "Mobile-based point of sale application specifically designed for cafe business operations.",
+        "link": "#projects",
+        "tags": [
+            "Kotlin",
+            "Node.js"
+        ],
+        "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop",
+        "delay": 500
+    },
+    {
+        "title": "Web Pasar Tradisional Online",
+        "description_id": "Digitalisasi pasar tradisional untuk memudahkan transaksi jual beli sembako secara daring.",
+        "description_en": "Digitalization of traditional markets to facilitate online buying and selling of basic necessities.",
+        "link": "#projects",
+        "tags": [
+            "Laravel",
+            "React.js",
+            "Tailwind CSS"
+        ],
+        "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2070&auto=format&fit=crop",
+        "delay": 500
+    },
+    {
+        "title": "Sistem pencatatan prestasi mahasiswa",
+        "description_id": "Platform manajemen data untuk mendokumentasikan pencapaian akademik dan non-akademik mahasiswa.",
+        "description_en": "Data management platform for documenting students academic and non-academic achievements.",
+        "link": "#projects",
+        "tags": [
+            "PHP",
+            "Bootstrap"
+        ],
+        "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop",
+        "delay": 500
+    }
+]

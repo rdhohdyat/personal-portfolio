@@ -16,6 +16,7 @@
       name="description"
       content="Portfolio Ridho Hidayat, Software Developer spesialis Laravel, Node.js, dan React."
     />
+    
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
@@ -121,8 +122,8 @@
           <div>
             <h2
               class="text-blue-500 font-medium mb-2 tracking-wide text-sm uppercase"
+              x-text="lang === 'id' ? 'Hallo, Saya' : 'Hello, I am'"
             >
-              Hello, I am
             </h2>
             <h1
               class="text-4xl sm:text-5xl font-bold tracking-tight mb-4 dark:text-white"
@@ -195,7 +196,7 @@
 
         <div class="relative group" data-aos="zoom-in" data-aos-delay="300">
           <div
-            class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 blur opacity-25 group-hover:opacity-50 transition duration-1000"
+            class="absolute -inset-1 rounded-2xl  blur opacity-25 group-hover:opacity-50 transition duration-1000"
           ></div>
           <div
             class="relative w-64 h-64 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 overflow-hidden"

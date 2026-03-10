@@ -167,7 +167,7 @@
               ></span>
             </a>
             <a
-              href="document/CV-RidhoHidayat.pdf"
+              href="document/cv_ridho.pdf"
               target="_blank"
               rel="noopener noreferrer"
               class="px-6 py-2.5 border border-zinc-200 dark:border-zinc-700 rounded-full text-sm font-semibold hover:border-blue-500 hover:text-blue-500 transition-all active:scale-95"
@@ -286,6 +286,61 @@
                   class="text-[10px] font-bold uppercase tracking-wider text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors"
                   x-text="tech"
                 ></span>
+              </div>
+            </template>
+          </div>
+        </section>
+
+        <section id="sertifikat" x-data="{ certificates: [] }" x-init="fetch('assets/data/certificates.json').then(r => r.json()).then(d => certificates = d)">
+          <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
+            <h2
+              class="text-xs font-bold uppercase tracking-widest text-zinc-500"
+              x-text="lang === 'id' ? 'Sertifikat' : 'Certificates'"
+            ></h2>
+            <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <template x-for="(cert, index) in certificates" :key="index">
+              <div
+                class="bento-card p-2 rounded-xl flex flex-col gap-4 group relative overflow-hidden"
+                data-aos="fade-up"
+                :data-aos-delay="cert.delay"
+              >
+                <!-- PDF Preview Container -->
+                <div class="relative w-full aspect-[3/2] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 shadow-inner">
+                  <iframe 
+                    :src="cert.file + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH'" 
+                    class="w-full h-full pointer-events-none"
+                    frameborder="0"
+                  ></iframe>
+                  <!-- Overlay for Click -->
+                  <a 
+                    :href="cert.file" 
+                    target="_blank" 
+                    class="absolute inset-0 z-20 flex items-center justify-center bg-zinc-950/0 group-hover:bg-zinc-950/40 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                  >
+                    <div class="bg-white text-black px-6 py-2.5 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl">
+                      <span x-text="lang === 'id' ? 'Lihat Dokument' : 'View Document'"></span>
+                      <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="px-2 pb-2">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div>
+                      <h3
+                        class="text-sm font-bold group-hover:text-blue-500 transition-colors line-clamp-1"
+                        x-text="cert.title"
+                      ></h3>
+                      <p
+                        class="text-xs uppercase tracking-widest text-zinc-500 font-medium"
+                        x-text="cert.issuer"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </template>
           </div>

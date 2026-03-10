@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Cisco CCNAv7: Introduction to Networks",
+    "issuer": "Cisco Networking Academy",
+    "file": "document/sertifikat/cisco1.pdf",
+    "icon": "fa-solid fa-network-wired",
+    "delay": 0
+  },
+  {
+    "title": "Cisco CCNAv7: Switching, Routing, and Wireless Essentials",
+    "issuer": "Cisco Networking Academy",
+    "file": "document/sertifikat/cisco2.pdf",
+    "icon": "fa-solid fa-server",
+    "delay": 100
+  },
+  {
+    "title": "Introduction to ReactJS",
+    "issuer": "Widya Edutech",
+    "file": "document/sertifikat/intro-reactjs.pdf",
+    "icon": "fa-brands fa-react",
+    "delay": 200
+  },
+  {
+    "title": "Junior Mobile Programmer (JMP) – Certificate of Competence",
+    "issuer": "BNSP dan Kominfo",
+    "file": "document/sertifikat/jmp.pdf",
+    "icon": "fa-solid fa-mobile-screen-button",
+    "delay": 300
+  },
+  {
+    "title": "MikroTik Certified Network Associate (MTCNA)",
+    "issuer": "MikroTik",
+    "file": "document/sertifikat/mikrotik.pdf",
+    "icon": "fa-solid fa-wifi",
+    "delay": 400
+  }
+]
